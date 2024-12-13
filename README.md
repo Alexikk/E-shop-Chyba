@@ -1,1 +1,1 @@
-# Eshop-Chyba
+# E-shop-Chyba
