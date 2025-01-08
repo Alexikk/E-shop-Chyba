@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Globální reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Tlačítka */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            margin: 5px;
+            text-decoration: none;
+        }
+        .btn-primary { background-color: #007bff; }
+        .btn-secondary { background-color: #6c757d; }
+        .btn-success { background-color: #28a745; }
+        .btn-danger { background-color: #dc3545; }
+        .btn-warning { background-color: #ffc107; color: black; }
+        .btn-info { background-color: #17a2b8; }
+        .btn-light { background-color: #f8f9fa; color: black; }
+        .btn-dark { background-color: #343a40; }
+        .btn-link {
+            background-color: transparent;
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        .navbar-toggler {
+            display: none; /* Pro mobilní verzi */
+        }
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-item {
+            margin: 0 10px;
+            position: relative;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #0056b3;
+        }
+        .nav-link.disabled {
+            color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none; /* Skryté */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block; /* Zobrazí při hoveru */
+        }
+        .dropdown-item {
+            display: block;
+            padding: 5px 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Formulář */
+        .form-inline {
+            display: flex;
+            align-items: center;
+        }
+        .form-control {
+            padding: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .btn-outline-success {
+            background-color: transparent;
+            border: 1px solid #28a745;
+            color: #28a745;
+        }
+        .btn-outline-success:hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+        /* Mobilní verze */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+                display: none;
+            }
+            .navbar-nav.show {
+                display: flex;
+            }
+            .navbar-toggler {
+                display: block;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Tlačítka -->
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-link">Link</button>   
+
+<!-- Navigační panel -->
+<nav class="navbar">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" onclick="toggleNavbar()">☰</button>
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button">
+                Dropdown
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+    <form class="form-inline">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</nav>
+
+<script>
+    function toggleNavbar() {
+        const navbarNav = document.querySelector('.navbar-nav');
+        navbarNav.classList.toggle('show');
+    }
+</script>
+
+</body>
+</html>
